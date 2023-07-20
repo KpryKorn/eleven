@@ -19,6 +19,7 @@ body {
   font-family: var(--font-primary);
   background: var(--color-primary);
   color: #fafafa;
+  overflow-x: hidden;
 }
 img {
   max-width: 100%;
@@ -155,10 +156,45 @@ h1 {
   padding-block: 8rem;
   position: relative;
 }
+#interview::before {
+  position: absolute;
+  content: "";
+  z-index: -1;
+  top: 0%;
+  bottom: 0%;
+  width: 130%;
+  left: -25%;
+  background: url(noise.webp) repeat,
+    linear-gradient(
+      83.21deg,
+      var(--color-primary) 0%,
+      var(--color-secondary) 100%
+    );
+  background-blend-mode: overlay;
+  -webkit-mask-image: radial-gradient(rgba(0, 0, 0, 0.4), transparent 70%);
+  mask-image: radial-gradient(rgba(0, 0, 0, 0.4), transparent 70%);
+}
+.split-img {
+  position: relative;
+}
 .split-img > img {
   aspect-ratio: 1;
   object-fit: cover;
   object-position: center;
+  filter: brightness(0.9);
+}
+.split-img h3 {
+  position: absolute;
+  top: -10%;
+  right: -90%;
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  font-size: 5rem;
+  letter-spacing: -2px;
+  line-height: 1;
+}
+.split-img h3 span {
+  color: var(--color-secondary);
 }
 .split-txt {
   font-size: 1.3rem;
@@ -170,4 +206,5 @@ h1 {
 .split-txt span {
   text-decoration: underline;
   color: var(--color-secondary);
+  cursor: pointer;
 }
